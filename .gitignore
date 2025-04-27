@@ -23,6 +23,7 @@
 
 # program io
 *.txt
+!input.txt
 
 # F#
 .fake
