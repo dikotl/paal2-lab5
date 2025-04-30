@@ -72,8 +72,8 @@ class Program
 
     static Fractional CalcExpr2(int n)
     {
-        if (n < 2)
-            return (1, 1);
+        if (n < 1)
+            return (1, 0);
 
         Fractional result = (1, 1);
 
