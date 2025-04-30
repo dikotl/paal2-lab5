@@ -1,6 +1,6 @@
 namespace Lab5;
 
-public enum Sex
+public enum Gender
 {
     Other,
     Male,

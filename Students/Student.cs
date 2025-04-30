@@ -5,7 +5,7 @@ public struct Student
     public string FirstName;
     public string LastName;
     public string Patronymic;
-    public Sex Sex;
+    public Gender Gender;
     public DateOnly BirthDay;
     public byte MathGrade;
     public byte PhysicsGrade;
@@ -14,28 +14,28 @@ public struct Student
 
     public string WriteString()
     {
-        return $"{LastName} {FirstName} {Patronymic} {SexToStringUA(Sex)} " +
+        return $"{LastName} {FirstName} {Patronymic} {GenderToStringUA(Gender)} " +
             $"{BirthDay} {WriteGrade(MathGrade)} {WriteGrade(PhysicsGrade)} " +
             $"{WriteGrade(ITGrade)} {Scholarship}";
 
-        static string SexToStringUA(Sex sex)
+        static string GenderToStringUA(Gender gender)
         {
-            return sex switch
+            return gender switch
             {
-                Sex.Male => "Ч",
-                Sex.Female => "Ж",
-                Sex.AttackHelicopter => "ВіуВіу",
+                Gender.Male => "Ч",
+                Gender.Female => "Ж",
+                Gender.AttackHelicopter => "ВіуВіу",
                 _ => "ІНШЕ",
             };
         }
 
-        static string SexToString(Sex sex)
+        static string GenderToString(Gender gender)
         {
-            return sex switch
+            return gender switch
             {
-                Sex.Male => "M",
-                Sex.Female => "F",
-                Sex.AttackHelicopter => "WiuWiu",
+                Gender.Male => "M",
+                Gender.Female => "F",
+                Gender.AttackHelicopter => "WiuWiu",
                 _ => "OTHER",
             };
         }
@@ -62,7 +62,7 @@ public struct Student
             LastName = ParseName(input[0], "last name"),
             FirstName = ParseName(input[1], "first name"),
             Patronymic = ParseName(input[2], "patronymic"),
-            Sex = ParseSex(input[3]),
+            Gender = ParseGender(input[3]),
             BirthDay = DateOnly.Parse(input[4]),
             MathGrade = ParseGrade(input[5]),
             PhysicsGrade = ParseGrade(input[6]),
@@ -80,25 +80,25 @@ public struct Student
             return s;
         }
 
-        static Sex ParseSex(string s)
+        static Gender ParseGender(string s)
         {
             return s switch
             {
-                "M" or "Ч" => Sex.Male,
-                "F" or "Ж" => Sex.Female,
-                "WiuWiu" or "ВіуВіу" => Sex.AttackHelicopter,
-                _ => Sex.Other,
+                "M" or "Ч" => Gender.Male,
+                "F" or "Ж" => Gender.Female,
+                "WiuWiu" or "ВіуВіу" => Gender.AttackHelicopter,
+                _ => Gender.Other,
             };
         }
 
-        static Sex ParseDateOnly(string s)
+        static Gender ParseDateOnly(string s)
         {
             return s switch
             {
-                "M" or "Ч" => Sex.Male,
-                "F" or "Ж" => Sex.Female,
-                "WiuWiu" or "ВіуВіу" => Sex.AttackHelicopter,
-                _ => Sex.Other,
+                "M" or "Ч" => Gender.Male,
+                "F" or "Ж" => Gender.Female,
+                "WiuWiu" or "ВіуВіу" => Gender.AttackHelicopter,
+                _ => Gender.Other,
             };
         }
 
