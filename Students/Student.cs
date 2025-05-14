@@ -1,4 +1,4 @@
-namespace Lab5;
+namespace Students;
 
 public struct Student
 {
